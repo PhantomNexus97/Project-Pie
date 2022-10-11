@@ -4,57 +4,46 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private Vector3 myVelocity = Vector3.zero;
-    public float mySpeed = 6f;
+    [SerializeField] private Rigidbody _rb;
+    [SerializeField] private float _turnSpeed = 360f;
+    [SerializeField] private float _speed = 5f;
+    [SerializeField] private Transform _model;
 
-    public Rigidbody myRigidbody;
-    public float myRayLength = 10f;
-    private int myMaskingLayer;
+    private Vector3 _input;
 
-    // Start is called before the first frame update
-    void Start()
+
+    private void Update()
     {
-        myRigidbody = GetComponent<Rigidbody>();
-
-        myMaskingLayer = LayerMask.GetMask("Floor");
+        GatherInput();
+        Look();
     }
 
-    // Update is called once per frame
-    void Update()
+     void FixedUpdate()
+     {
+        Move();
+     }
+
+    void GatherInput()
     {
-        
+        _input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+
+    }
+    private void Look()
+    {
+        if (_input == Vector3.zero) return;
+
+        Quaternion rot = Quaternion.LookRotation(_input.ToIso(), Vector3.up);
+        _model.rotation = Quaternion.RotateTowards(_model.rotation, rot, _turnSpeed * Time.deltaTime);
     }
 
-    private void FixedUpdate()
+    void Move()
     {
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
-
-        myVelocity.Set(horizontal, 0, vertical);
-
-        myVelocity = myVelocity.normalized * mySpeed * Time.deltaTime;
-
-        myRigidbody.MovePosition(myRigidbody.position + myVelocity);
-
-        Turn();
+    _rb.MovePosition(transform.position + _input.ToIso() * _input.normalized.magnitude * _speed * Time.deltaTime);
     }
-
-    public void Turn()
-    {
-        Ray CameraToMouse = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-        RaycastHit floorHit;
-
-        if(Physics.Raycast(CameraToMouse, out floorHit, myRayLength, myMaskingLayer))
-        {
-            Vector3 playerToMouse = floorHit.point - myRigidbody.position;
-
-            playerToMouse.y = 0;
-
-            Quaternion newRotation = Quaternion.LookRotation(playerToMouse);
-
-        }
-
-
-    } 
 }
+
+
+    
+
+
+
