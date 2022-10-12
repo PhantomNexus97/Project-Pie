@@ -18,6 +18,7 @@ public class UnitHealth
         {
             return _currentHealth;
         }
+        set
         {
             _currentHealth = value;
         }
