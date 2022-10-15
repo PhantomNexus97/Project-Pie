@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 18777199}
   - component: {fileID: 18777198}
   - component: {fileID: 18777197}
+  - component: {fileID: 18777201}
   m_Layer: 0
   m_Name: Bread
   m_TagString: Bread
@@ -218,8 +219,21 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &18777201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18777196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82ef2346961f78842b5a4fd7d52283d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: d38f549c-73e0-419a-9e16-d7791eda426a
 --- !u!1 &101472134
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,6 +246,7 @@ GameObject:
   - component: {fileID: 101472137}
   - component: {fileID: 101472136}
   - component: {fileID: 101472135}
+  - component: {fileID: 101472139}
   m_Layer: 0
   m_Name: Cheese
   m_TagString: Cheese
@@ -315,8 +330,21 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &101472139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101472134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82ef2346961f78842b5a4fd7d52283d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: eb5196f7-4d45-48ac-b64d-bbb6ebafb474
 --- !u!1 &306092209
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,8 +362,8 @@ GameObject:
   - component: {fileID: 306092216}
   - component: {fileID: 306092217}
   m_Layer: 0
-  m_Name: Test_Capsule
-  m_TagString: Untagged
+  m_Name: Player
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -350,7 +378,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.68
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -475,9 +503,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c74617c83f1ba8459255db43953ffce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cheese: 0
-  butter: 0
-  bread: 0
+  _cheese: 0
+  _butter: 0
+  _bread: 0
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -624,6 +652,7 @@ GameObject:
   - component: {fileID: 350662395}
   - component: {fileID: 350662394}
   - component: {fileID: 350662393}
+  - component: {fileID: 350662397}
   m_Layer: 0
   m_Name: Butter
   m_TagString: Butter
@@ -707,8 +736,21 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &350662397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 350662392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82ef2346961f78842b5a4fd7d52283d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: b7ae52a1-c285-4868-b870-e38b1b10df9d
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1262,6 +1304,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1819662466
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1819662467}
+  m_Layer: 0
+  m_Name: Managers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1819662467
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1819662466}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.06286889, y: -0.004175663, z: -0.29166955}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1907298468}
+  - {fileID: 1989326444}
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1907298466
 GameObject:
   m_ObjectHideFlags: 0
@@ -1298,11 +1373,57 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1907298466}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.06286889, y: -0.004175663, z: -0.29166955}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_Father: {fileID: 1819662467}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1989326443
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1989326444}
+  - component: {fileID: 1989326445}
+  m_Layer: 0
+  m_Name: DataPersistenceManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1989326444
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989326443}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1819662467}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1989326445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989326443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d89d31dd74227ca4f9b746ec38c37bb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fileName: SaveData.game
+  useEncryption: 1

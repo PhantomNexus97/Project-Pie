@@ -2,39 +2,49 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInventory : MonoBehaviour
+public class PlayerInventory : MonoBehaviour, IDataPersistence
 {
 
+
     // Item number store
-    public int cheese;
-    public int butter;
-    public int bread;
+    public int _cheese;
+    public int _butter;
+    public int _bread;
 
 
-    public void OnTriggerEnter(Collider Col)
+
+
+
+    public void AddCheese()
     {
-        if(Col.gameObject.tag == "Cheese")
-        {
-            cheese = cheese + 1;
-            //Debug must remove
-            Debug.Log("Cheese Collected");
-            Col.gameObject.SetActive(false);
-        }
-
-        if (Col.gameObject.tag == "Butter")
-        {
-            butter = butter + 1;
-            //Debug must remove
-            Debug.Log("Butter Collected");
-            Col.gameObject.SetActive(false);
-        }
-
-        if (Col.gameObject.tag == "Bread")
-        {
-            bread = bread + 1;
-            //Debug must remove
-            Debug.Log("Bread Collected");
-            Col.gameObject.SetActive(false);
-        }
+        _cheese += 1;
     }
+    public void AddButter()
+    {
+        _butter += 1;
+    }
+    public void AddBread()
+    {
+        _bread += 1;
+    }
+
+
+    public void LoadData(GameData data)
+    {
+        this._cheese = data._cheese;
+        this._butter = data._butter;
+        this._bread = data._bread;
+    }
+
+    public void SaveData(GameData data)
+    {
+        data._cheese = this._cheese;
+        data._butter = this._butter;
+        data._bread = this._bread;
+    }
+
+
+
+
+
 }

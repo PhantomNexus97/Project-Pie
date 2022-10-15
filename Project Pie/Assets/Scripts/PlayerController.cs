@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.RestService;
 using UnityEngine;
+using UnityEngine.UIElements;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IDataPersistence
 {
     [SerializeField] private Rigidbody _rb;
     [SerializeField] private float _turnSpeed = 360f;
@@ -10,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform _model;
 
     private Vector3 _input;
+
 
 
     private void Update()
@@ -40,6 +43,21 @@ public class PlayerController : MonoBehaviour
     {
     _rb.MovePosition(transform.position + _input.ToIso() * _input.normalized.magnitude * _speed * Time.deltaTime);
     }
+
+    public void LoadData(GameData data)
+    {
+        this.transform.position = data._PlayerPosition;
+
+    }
+
+    public void SaveData(GameData data)
+    {
+        data._PlayerPosition = this.transform.position;
+
+    }
+
+
+
 }
 
 
