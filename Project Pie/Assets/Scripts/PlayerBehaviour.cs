@@ -16,12 +16,12 @@ public class PlayerBehaviour : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             PlayerTakeDmg(10);
-            Debug.Log(GameManager.gameManager._playerHealth.Health);
+            Debug.Log("You have been damaged to " + GameManager.gameManager._playerHealth.Health);
         }
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             PlayerHeal(10);
-            Debug.Log(GameManager.gameManager._playerHealth.Health);
+            Debug.Log("You have been healed to " + GameManager.gameManager._playerHealth.Health);
         }
     }
 

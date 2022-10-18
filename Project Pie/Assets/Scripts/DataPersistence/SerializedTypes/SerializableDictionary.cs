@@ -27,7 +27,7 @@ public class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, IS
 
     public void OnAfterDeserialize()
     {
-        this.keys.Clear();
+        this.Clear();
 
         if(keys.Count != this.values.Count)
         {

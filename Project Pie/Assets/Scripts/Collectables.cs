@@ -44,6 +44,7 @@ public class Collectables : MonoBehaviour, IDataPersistence
             if (inventory != null){
                 inventory.AddCheese();
                 gameObject.SetActive(false);
+                _collected = true;
             }
         }
 
@@ -52,6 +53,7 @@ public class Collectables : MonoBehaviour, IDataPersistence
             if (inventory != null){
                 inventory.AddButter();
                 gameObject.SetActive(false);
+                _collected = true;
             }
         }
 
@@ -59,6 +61,7 @@ public class Collectables : MonoBehaviour, IDataPersistence
             if (inventory != null){
                 inventory.AddBread();
                 gameObject.SetActive(false);
+                _collected = true;
             }
         }
     }
