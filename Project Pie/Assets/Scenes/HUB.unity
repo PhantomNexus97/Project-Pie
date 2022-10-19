@@ -549,9 +549,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c74617c83f1ba8459255db43953ffce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cheese: 0
-  _butter: 0
-  _bread: 0
+  _cheese: 5
+  _butter: 4
+  _bread: 2
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
