@@ -17,14 +17,24 @@ public class EnemyDeathController : MonoBehaviour
             EnemyTakeDmg(10);
 
         }
-        
+
+        if (other.gameObject.tag == "CheeseEnemy")
+        {
+            PlayerTakeDmg(10);
+            Debug.Log("You have been damaged to " + GameManager.gameManager._playerHealth.Health);
+
+        }
+
     }
     private void EnemyTakeDmg(int dmg)
     {
         _enemyHealth.DmgUnit(dmg);
         Debug.Log("Cheese damaged to " + _enemyHealth.Health);
     }
-
+    private void PlayerTakeDmg(int dmg)
+    {
+        GameManager.gameManager._playerHealth.DmgUnit(dmg);
+    }
     void SpawnOjectCheese()
     {
         GameObject newObject = Instantiate(Cheese, transform.position, transform.rotation);

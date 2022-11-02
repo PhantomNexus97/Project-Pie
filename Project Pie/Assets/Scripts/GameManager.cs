@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public static GameManager gameManager { get; private set; }
     //Player
     public UnitHealth _playerHealth = new UnitHealth(100, 100);
-    //Enemy
+    
 
 
     void Awake()

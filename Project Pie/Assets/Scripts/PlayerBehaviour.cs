@@ -35,13 +35,24 @@ public class PlayerBehaviour : MonoBehaviour
     }
 
 
+
     private void PlayerTakeDmg(int dmg)
     {
         GameManager.gameManager._playerHealth.DmgUnit(dmg);
     }
-
     private void PlayerHeal(int healing)
     {
         GameManager.gameManager._playerHealth.HealUnit(healing);
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "CheeseEnemy")
+        {
+            PlayerTakeDmg(10);
+            Debug.Log("You have been damaged to " + GameManager.gameManager._playerHealth.Health);
+
+        }
+
     }
 }
