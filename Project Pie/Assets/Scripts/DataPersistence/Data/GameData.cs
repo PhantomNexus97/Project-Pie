@@ -11,7 +11,7 @@ public class GameData
     public int _bread;
 
 
-    public Vector3 _PlayerPosition;
+    //public Vector3 _PlayerPosition;
     public SerializableDictionary<string, bool> _itemsCollected;
 
 
@@ -23,7 +23,7 @@ public class GameData
         this._bread = 0;
 
 
-        _PlayerPosition = Vector3.zero;
+        //_PlayerPosition = Vector3.zero;
         _itemsCollected = new SerializableDictionary<string, bool>();
 
     }

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class PlayerInventory : MonoBehaviour, IDataPersistence
 {
@@ -12,6 +14,11 @@ public class PlayerInventory : MonoBehaviour, IDataPersistence
     public int _bread;
 
 
+    public TextMeshProUGUI cheeseAmtUI;
+    public TextMeshProUGUI butterAmtUI;
+    public TextMeshProUGUI breadAmtUI;
+
+    PlayerInventory inventory;
 
 
 
@@ -44,7 +51,13 @@ public class PlayerInventory : MonoBehaviour, IDataPersistence
     }
 
 
+    void Update()
+    {
 
+        cheeseAmtUI.text = _cheese.ToString();
+        butterAmtUI.text = _butter.ToString();
+        breadAmtUI.text = _bread.ToString();
+    }
 
 
 }
