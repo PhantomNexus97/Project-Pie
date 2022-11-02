@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerBehaviour : MonoBehaviour
 {
+    public RangedWeaponData weaponData;
 
     void Start()
     {
@@ -13,6 +14,14 @@ public class PlayerBehaviour : MonoBehaviour
 
     void Update()
     {
+        if(Input.GetMouseButtonDown(0)){
+            weaponData.isFiring = true;
+;        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            weaponData.isFiring = false;
+        }
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             PlayerTakeDmg(10);

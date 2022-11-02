@@ -7,9 +7,12 @@ public class GameManager : MonoBehaviour
 {
 
 
-    public static GameManager gameManager { get; private set; }
 
+    public static GameManager gameManager { get; private set; }
+    //Player
     public UnitHealth _playerHealth = new UnitHealth(100, 100);
+    //Enemy
+    public UnitHealth _enemyCheeseHealth = new UnitHealth(100, 100);
 
     void Awake()
     {
@@ -22,6 +25,7 @@ public class GameManager : MonoBehaviour
             gameManager = this;
         }
     }
+
 
 
 }

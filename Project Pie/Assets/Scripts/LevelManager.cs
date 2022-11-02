@@ -7,7 +7,7 @@ public class LevelManager : MonoBehaviour
 {
 
     private DataPersistenceManager _DPManager;
-    private void OnTriggerEnter(Collider col)
+    private void OnTriggerEnter(Collider other)
     {
         if(gameObject.tag == "HUB")
         {

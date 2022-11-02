@@ -6,10 +6,13 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class EnemyMovement : MonoBehaviour
 {
+
     public Transform Target;
     public float UpdateSpeed = 0.1f;
 
+
     private NavMeshAgent Agent;
+
 
     private void Awake()
     {
@@ -31,4 +34,6 @@ public class EnemyMovement : MonoBehaviour
             yield return wait;
         }
     }
+
+
 }
