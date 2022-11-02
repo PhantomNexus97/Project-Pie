@@ -10,9 +10,6 @@ public class EnemyDeathController : MonoBehaviour
     public GameObject Cheese;
 
 
-
-
-
     void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.tag == "ToastBullet")
@@ -20,11 +17,7 @@ public class EnemyDeathController : MonoBehaviour
             EnemyTakeDmg(10);
 
         }
-        else if (_enemyHealth.Health <= 0)
-        {
-            SpawnOjectCheese();
-            Destroy(gameObject);
-        }
+        
     }
     private void EnemyTakeDmg(int dmg)
     {
@@ -34,9 +27,18 @@ public class EnemyDeathController : MonoBehaviour
 
     void SpawnOjectCheese()
     {
-        GameObject newObject = Instantiate(Cheese);
-        Instantiate(Cheese, transform.position, transform.rotation);
+        GameObject newObject = Instantiate(Cheese, transform.position, transform.rotation);
+        newObject.SetActive(true);
+        
     }
 
+    private void Update()
+    {
+        if (_enemyHealth.Health <= 0)
+        {
+            Destroy(this.gameObject);
+            SpawnOjectCheese();
 
+        }
+    }
 }
