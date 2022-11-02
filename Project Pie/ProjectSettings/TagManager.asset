@@ -10,6 +10,7 @@ TagManager:
   - Level01
   - HUB
   - CheeseEnemy
+  - ToastBullet
   layers:
   - Default
   - TransparentFX
