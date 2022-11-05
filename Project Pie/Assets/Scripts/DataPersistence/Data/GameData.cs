@@ -9,6 +9,7 @@ public class GameData
     public int _cheese;
     public int _butter;
     public int _bread;
+    public int _grilledCheese;
 
 
     //public Vector3 _PlayerPosition;
@@ -21,6 +22,7 @@ public class GameData
         this._cheese = 0;
         this._butter = 0;
         this._bread = 0;
+        this._grilledCheese = 0;
 
 
         //_PlayerPosition = Vector3.zero;

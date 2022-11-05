@@ -11,6 +11,8 @@ TagManager:
   - HUB
   - CheeseEnemy
   - ToastBullet
+  - BreadEnemy
+  - _craftingBench
   layers:
   - Default
   - TransparentFX

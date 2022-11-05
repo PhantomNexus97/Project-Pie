@@ -13,15 +13,22 @@ public class PlayerInventory : MonoBehaviour, IDataPersistence
     public int _butter;
     public int _bread;
 
+    //Crafted Items store
+    public int _grilledCheese;
+
+
 
     public TextMeshProUGUI cheeseAmtUI;
     public TextMeshProUGUI butterAmtUI;
     public TextMeshProUGUI breadAmtUI;
 
+    //Crafted Inventory items
+    public TextMeshProUGUI grilledCheeseAmtUI;
+
     PlayerInventory inventory;
 
 
-
+    //Pick ups
     public void AddCheese()
     {
         _cheese += 1;
@@ -35,12 +42,19 @@ public class PlayerInventory : MonoBehaviour, IDataPersistence
         _bread += 1;
     }
 
+    //Craftables
+    public void CraftGrilledCheese()
+    {
+        _grilledCheese += 1;
+    }
+
 
     public void LoadData(GameData data)
     {
         this._cheese = data._cheese;
         this._butter = data._butter;
         this._bread = data._bread;
+        this._grilledCheese = data._grilledCheese;
     }
 
     public void SaveData(GameData data)
@@ -48,6 +62,7 @@ public class PlayerInventory : MonoBehaviour, IDataPersistence
         data._cheese = this._cheese;
         data._butter = this._butter;
         data._bread = this._bread;
+        data._grilledCheese = this._grilledCheese;
     }
 
 
@@ -57,6 +72,7 @@ public class PlayerInventory : MonoBehaviour, IDataPersistence
         cheeseAmtUI.text = _cheese.ToString();
         butterAmtUI.text = _butter.ToString();
         breadAmtUI.text = _bread.ToString();
+        //grilledCheeseAmtUI.text = _grilledCheese.ToString();
     }
 
 

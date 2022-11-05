@@ -7,7 +7,7 @@ public class EnemyDeathController : MonoBehaviour
     public UnitHealth _enemyHealth = new UnitHealth(100, 100);
 
 
-    public GameObject Cheese;
+    public GameObject Collectable;
 
 
     void OnCollisionEnter(Collision other)
@@ -25,6 +25,13 @@ public class EnemyDeathController : MonoBehaviour
 
         }
 
+        if (other.gameObject.tag == "BreadEnemy")
+        {
+            PlayerTakeDmg(10);
+            Debug.Log("You have been damaged to " + GameManager.gameManager._playerHealth.Health);
+
+        }
+
     }
     private void EnemyTakeDmg(int dmg)
     {
@@ -35,20 +42,22 @@ public class EnemyDeathController : MonoBehaviour
     {
         GameManager.gameManager._playerHealth.DmgUnit(dmg);
     }
-    void SpawnOjectCheese()
+    void SpawnOjectCollectable()
     {
-        GameObject newObject = Instantiate(Cheese, transform.position, transform.rotation);
+        GameObject newObject = Instantiate(Collectable, transform.position, transform.rotation);
         newObject.SetActive(true);
         
     }
+
 
     private void Update()
     {
         if (_enemyHealth.Health <= 0)
         {
             Destroy(this.gameObject);
-            SpawnOjectCheese();
+            SpawnOjectCollectable();
 
         }
+
     }
 }
