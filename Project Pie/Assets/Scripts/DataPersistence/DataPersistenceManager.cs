@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-
+using System.IO;
 
 public class DataPersistenceManager : MonoBehaviour
 {
@@ -19,6 +19,9 @@ public class DataPersistenceManager : MonoBehaviour
     private FileDataHandler dataHandler;
 
     public static DataPersistenceManager instance { get; private set; }
+
+    public string sfileName = "SavaData";
+    public string fileExtension = ".data";
 
 
     private void Awake()
@@ -42,7 +45,9 @@ public class DataPersistenceManager : MonoBehaviour
 
     public void NewGame()
     {
+        File.Delete(Application.persistentDataPath + "/SaveData.data");
         this.gameData = new GameData();
+
     }
 
     public void LoadGame()

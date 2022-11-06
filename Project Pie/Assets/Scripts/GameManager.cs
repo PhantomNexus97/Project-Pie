@@ -9,8 +9,11 @@ public class GameManager : MonoBehaviour
     public static GameManager gameManager { get; private set; }
     //Player
     public UnitHealth _playerHealth = new UnitHealth(100, 100);
-    
 
+    public PlayerInventory _playerInventory;
+
+    public GameObject _winScreen;
+    public GameObject _CraftUI;
 
     void Awake()
     {
@@ -21,6 +24,16 @@ public class GameManager : MonoBehaviour
         else
         {
             gameManager = this;
+        }
+    }
+
+    private void Update()
+    {
+        if(_playerInventory._grilledCheese >= 1)
+        {
+            _winScreen.SetActive(true);
+            _CraftUI.SetActive(false);
+
         }
     }
 

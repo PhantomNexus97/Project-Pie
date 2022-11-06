@@ -250,6 +250,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Butter
       objectReference: {fileID: 0}
+    - target: {fileID: 2929640277652407947, guid: af7a32eed67e1fa4a899ef30a8d134b1,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dc8bd1f32cfa254297d1798f32b6e98, type: 2}
+    - target: {fileID: 7483894711331120201, guid: af7a32eed67e1fa4a899ef30a8d134b1,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: afb41fba1aa9a3647af9036b8770226a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af7a32eed67e1fa4a899ef30a8d134b1, type: 3}
 --- !u!4 &6044326421521494331 stripped

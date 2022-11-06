@@ -6,6 +6,7 @@ public class PlayerBehaviour : MonoBehaviour
 {
     public RangedWeaponData weaponData;
 
+    public GameObject gameOverScreen;
     void Start()
     {
         
@@ -32,6 +33,11 @@ public class PlayerBehaviour : MonoBehaviour
             PlayerHeal(10);
             Debug.Log("You have been healed to " + GameManager.gameManager._playerHealth.Health);
         }
+        if (GameManager.gameManager._playerHealth.Health <= 0)
+        {
+            Destroy(this.gameObject);
+            gameOverScreen.SetActive(true);
+        }
     }
 
 
@@ -50,9 +56,25 @@ public class PlayerBehaviour : MonoBehaviour
         if (other.gameObject.tag == "CheeseEnemy")
         {
             PlayerTakeDmg(10);
-            Debug.Log("You have been damaged to " + GameManager.gameManager._playerHealth.Health);
+            Debug.Log("You have been damaged to " + GameManager.gameManager._playerHealth.Health + " by Cheese");
+
+        }
+
+        if (other.gameObject.tag == "BreadEnemy")
+        {
+            PlayerTakeDmg(10);
+            Debug.Log("You have been damaged to " + GameManager.gameManager._playerHealth.Health + " by Bread");
+
+        }
+
+        if (other.gameObject.tag == "ButterEnemy")
+        {
+            PlayerTakeDmg(10);
+            Debug.Log("You have been damaged to " + GameManager.gameManager._playerHealth.Health + " by Butter");
 
         }
 
     }
+
+ 
 }

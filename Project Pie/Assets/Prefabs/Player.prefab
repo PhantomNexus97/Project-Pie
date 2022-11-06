@@ -181,6 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponData: {fileID: 1743504673968506783}
+  gameOverScreen: {fileID: 0}
 --- !u!114 &1743504672477148707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,9 +197,14 @@ MonoBehaviour:
   _cheese: 5
   _butter: 4
   _bread: 2
+  _grilledCheese: 0
   cheeseAmtUI: {fileID: 0}
   butterAmtUI: {fileID: 0}
   breadAmtUI: {fileID: 0}
+  cheeseCAmtUI: {fileID: 0}
+  butterCAmtUI: {fileID: 0}
+  breadCAmtUI: {fileID: 0}
+  grilledCheeseAmtUI: {fileID: 0}
 --- !u!1 &1743504672993351986
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,7 +268,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: d41063eabd8b0b04287a779693460ebd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -321,7 +327,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1743504673284068644}
   m_LocalRotation: {x: -0, y: 0.70710707, z: -0, w: 0.70710653}
-  m_LocalPosition: {x: 0.549, y: 0, z: 0}
+  m_LocalPosition: {x: 1.163, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -455,6 +461,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6067185528594298527, guid: 83ce153b43532904a92fefe217b46acd,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 97abe257e6561264fa996eec890d0354, type: 2}
     - target: {fileID: 919132149155446097, guid: 83ce153b43532904a92fefe217b46acd,
         type: 3}
       propertyPath: m_Name

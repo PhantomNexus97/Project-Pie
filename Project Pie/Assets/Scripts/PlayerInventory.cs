@@ -7,21 +7,27 @@ using UnityEngine.SocialPlatforms.Impl;
 public class PlayerInventory : MonoBehaviour, IDataPersistence
 {
 
-
+    [Header("Picked Up Items")]
     // Item number store
     public int _cheese;
     public int _butter;
     public int _bread;
-
+    [Header("Crafted Items")]
     //Crafted Items store
     public int _grilledCheese;
 
 
-
+    [Header("InventoryUI Amt Check")]
     public TextMeshProUGUI cheeseAmtUI;
     public TextMeshProUGUI butterAmtUI;
     public TextMeshProUGUI breadAmtUI;
 
+    [Header("CraftingUI Amt Check")]
+    public TextMeshProUGUI cheeseCAmtUI;
+    public TextMeshProUGUI butterCAmtUI;
+    public TextMeshProUGUI breadCAmtUI;
+
+    [Header("CraftedItemUI Amt Check")]
     //Crafted Inventory items
     public TextMeshProUGUI grilledCheeseAmtUI;
 
@@ -72,6 +78,10 @@ public class PlayerInventory : MonoBehaviour, IDataPersistence
         cheeseAmtUI.text = _cheese.ToString();
         butterAmtUI.text = _butter.ToString();
         breadAmtUI.text = _bread.ToString();
+
+        cheeseCAmtUI.text = _cheese.ToString();
+        butterCAmtUI.text = _butter.ToString();
+        breadCAmtUI.text = _bread.ToString();
         //grilledCheeseAmtUI.text = _grilledCheese.ToString();
     }
 
