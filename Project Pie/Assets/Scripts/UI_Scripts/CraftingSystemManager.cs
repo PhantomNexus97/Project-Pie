@@ -7,6 +7,9 @@ public class CraftingSystemManager : MonoBehaviour
     public GameObject CraftingUI;
     public GameObject CraftButtonON;
     public GameObject CraftButtonOff;
+    public static bool hasAmount = false;
+
+    
 
     public PlayerInventory inventory;
     private void OnTriggerEnter(Collider other)
@@ -15,7 +18,7 @@ public class CraftingSystemManager : MonoBehaviour
         {
             Debug.Log("Entered crafting zone");
             CraftingUI.SetActive(true);
-            
+            PauseTime();
         }
     }
 
@@ -34,15 +37,31 @@ public class CraftingSystemManager : MonoBehaviour
 
         if (inventory._cheese <= 0 && inventory._bread <= 0 && inventory._butter <= 0)
         {
-            Debug.Log("You cant make it");
+            //Debug.Log("You cant make it");
             CraftButtonOff.SetActive(false);
+            hasAmount = false;
         }
         if (inventory._cheese >= 1 && inventory._bread >= 1 && inventory._butter >= 1)
         {
-                Debug.Log("You can make it!");
+                //Debug.Log("You can make it!");
                 CraftButtonON.SetActive(true);
+                hasAmount = true;
         }
 
         
+    }
+
+   public void ResumeTime()
+    {
+
+        Time.timeScale = 1f;
+        PauseScreen.GameIsPaused = false;
+    }
+
+   public void PauseTime()
+    {
+
+        Time.timeScale = 0f;
+        PauseScreen.GameIsPaused = true;
     }
 }

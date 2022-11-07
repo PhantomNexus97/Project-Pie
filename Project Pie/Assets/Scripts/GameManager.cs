@@ -12,8 +12,7 @@ public class GameManager : MonoBehaviour
 
     public PlayerInventory _playerInventory;
 
-    public GameObject _winScreen;
-    public GameObject _CraftUI;
+
 
     void Awake()
     {
@@ -29,12 +28,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if(_playerInventory._grilledCheese >= 1)
-        {
-            _winScreen.SetActive(true);
-            _CraftUI.SetActive(false);
 
-        }
     }
 
 

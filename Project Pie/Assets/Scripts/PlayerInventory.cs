@@ -22,17 +22,13 @@ public class PlayerInventory : MonoBehaviour, IDataPersistence
     public TextMeshProUGUI butterAmtUI;
     public TextMeshProUGUI breadAmtUI;
 
-    [Header("CraftingUI Amt Check")]
-    public TextMeshProUGUI cheeseCAmtUI;
-    public TextMeshProUGUI butterCAmtUI;
-    public TextMeshProUGUI breadCAmtUI;
+
 
     [Header("CraftedItemUI Amt Check")]
     //Crafted Inventory items
-    public TextMeshProUGUI grilledCheeseAmtUI;
+    //public TextMeshProUGUI grilledCheeseAmtUI;
 
     PlayerInventory inventory;
-
 
     //Pick ups
     public void AddCheese()
@@ -79,11 +75,9 @@ public class PlayerInventory : MonoBehaviour, IDataPersistence
         butterAmtUI.text = _butter.ToString();
         breadAmtUI.text = _bread.ToString();
 
-        cheeseCAmtUI.text = _cheese.ToString();
-        butterCAmtUI.text = _butter.ToString();
-        breadCAmtUI.text = _bread.ToString();
         //grilledCheeseAmtUI.text = _grilledCheese.ToString();
     }
+
 
 
 }

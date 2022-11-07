@@ -18,20 +18,14 @@ public class EnemyDeathController : MonoBehaviour
 
         }
 
-        if (other.gameObject.tag == "CheeseEnemy")
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "MeleeWeapon")
         {
-            PlayerTakeDmg(10);
-            Debug.Log("You have been damaged to " + GameManager.gameManager._playerHealth.Health);
-
+            EnemyTakeDmg(20);
+            Debug.Log("Hit");
         }
-
-        if (other.gameObject.tag == "BreadEnemy")
-        {
-            PlayerTakeDmg(10);
-            Debug.Log("You have been damaged to " + GameManager.gameManager._playerHealth.Health);
-
-        }
-
     }
     private void EnemyTakeDmg(int dmg)
     {
@@ -42,12 +36,19 @@ public class EnemyDeathController : MonoBehaviour
     {
         GameManager.gameManager._playerHealth.DmgUnit(dmg);
     }
+
+    private void PlayerHeal(int healing)
+    {
+        GameManager.gameManager._playerHealth.HealUnit(healing);
+    }
+
     void SpawnOjectCollectable()
     {
         GameObject newObject = Instantiate(Collectable, transform.position, transform.rotation);
         newObject.SetActive(true);
         
     }
+
 
 
     private void Update()

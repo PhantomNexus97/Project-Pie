@@ -13,6 +13,11 @@ TagManager:
   - ToastBullet
   - BreadEnemy
   - _craftingBench
+  - _inventoryChest
+  - Level02
+  - Level03
+  - HUB_Outside
+  - MeleeWeapon
   layers:
   - Default
   - TransparentFX

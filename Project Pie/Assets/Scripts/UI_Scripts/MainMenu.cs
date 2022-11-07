@@ -9,12 +9,14 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("HUB");
         DataPersistenceManager.instance.NewGame();
+        Time.timeScale = 1f;
     }
 
     public void LoadGame()
     {
         SceneManager.LoadScene("HUB");
         DataPersistenceManager.instance.LoadGame();
+        Time.timeScale = 1f;
     }
 
     public void MainMenuScreen()

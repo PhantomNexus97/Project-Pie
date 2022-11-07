@@ -1,12 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerBehaviour : MonoBehaviour
 {
+    [Header("Weapon Data")]
     public RangedWeaponData weaponData;
 
+    [Header("Game Over Screen")]
     public GameObject gameOverScreen;
+
+    [Header("Health Bar")]
+    public TextMeshProUGUI healthAmtUI;
+
+    [Header("MeleeBox")]
+    public GameObject MeleeBox;
+
+    [Header("CraftingUI UI")]
+    public GameObject _winScreen;
+    public GameObject _CraftUI;
+
+    public PlayerInventory inventory;
     void Start()
     {
         
@@ -22,13 +37,21 @@ public class PlayerBehaviour : MonoBehaviour
         {
             weaponData.isFiring = false;
         }
+        if (Input.GetMouseButtonDown(1))
+        {
+            MeleeBox.SetActive(true);
+        }
+        if (Input.GetMouseButtonUp(1))
+        {
+            MeleeBox.SetActive(false);
+        }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.RightControl))
         {
             PlayerTakeDmg(10);
             Debug.Log("You have been damaged to " + GameManager.gameManager._playerHealth.Health);
         }
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.RightShift))
         {
             PlayerHeal(10);
             Debug.Log("You have been healed to " + GameManager.gameManager._playerHealth.Health);
@@ -37,6 +60,14 @@ public class PlayerBehaviour : MonoBehaviour
         {
             Destroy(this.gameObject);
             gameOverScreen.SetActive(true);
+        }
+        healthAmtUI.text = GameManager.gameManager._playerHealth.Health.ToString();
+
+        if (inventory._grilledCheese >= 1)
+        {
+            _winScreen.SetActive(true);
+            _CraftUI.SetActive(false);
+
         }
     }
 
@@ -55,21 +86,21 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if (other.gameObject.tag == "CheeseEnemy")
         {
-            PlayerTakeDmg(10);
+            PlayerTakeDmg(3);
             Debug.Log("You have been damaged to " + GameManager.gameManager._playerHealth.Health + " by Cheese");
 
         }
 
         if (other.gameObject.tag == "BreadEnemy")
         {
-            PlayerTakeDmg(10);
+            PlayerTakeDmg(3);
             Debug.Log("You have been damaged to " + GameManager.gameManager._playerHealth.Health + " by Bread");
 
         }
 
         if (other.gameObject.tag == "ButterEnemy")
         {
-            PlayerTakeDmg(10);
+            PlayerTakeDmg(3);
             Debug.Log("You have been damaged to " + GameManager.gameManager._playerHealth.Health + " by Butter");
 
         }
