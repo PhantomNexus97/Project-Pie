@@ -17,10 +17,6 @@ public class PlayerBehaviour : MonoBehaviour
     [Header("MeleeBox")]
     public GameObject MeleeBox;
 
-    [Header("CraftingUI UI")]
-    public GameObject _winScreen;
-    public GameObject _CraftUI;
-
     public PlayerInventory inventory;
     void Start()
     {
@@ -63,12 +59,7 @@ public class PlayerBehaviour : MonoBehaviour
         }
         healthAmtUI.text = GameManager.gameManager._playerHealth.Health.ToString();
 
-        if (inventory._grilledCheese >= 1)
-        {
-            _winScreen.SetActive(true);
-            _CraftUI.SetActive(false);
 
-        }
     }
 
 

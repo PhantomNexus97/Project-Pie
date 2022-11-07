@@ -8244,6 +8244,8 @@ MonoBehaviour:
   CraftingUI: {fileID: 1319298161}
   CraftButtonON: {fileID: 991366596}
   CraftButtonOff: {fileID: 1615163252}
+  _winScreen: {fileID: 0}
+  _CraftUI: {fileID: 0}
   inventory: {fileID: 862143108}
 --- !u!1 &866658229
 GameObject:
@@ -14464,6 +14466,8 @@ MonoBehaviour:
   CraftingUI: {fileID: 1319298161}
   CraftButtonON: {fileID: 991366596}
   CraftButtonOff: {fileID: 1615163252}
+  _winScreen: {fileID: 1986823901}
+  _CraftUI: {fileID: 1319298161}
   inventory: {fileID: 862143108}
 --- !u!1 &1615163252
 GameObject:

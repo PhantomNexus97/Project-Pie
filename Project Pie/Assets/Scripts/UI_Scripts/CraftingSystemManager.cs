@@ -9,7 +9,9 @@ public class CraftingSystemManager : MonoBehaviour
     public GameObject CraftButtonOff;
     public static bool hasAmount = false;
 
-    
+    [Header("CraftingUI UI")]
+    public GameObject _winScreen;
+    public GameObject _CraftUI;
 
     public PlayerInventory inventory;
     private void OnTriggerEnter(Collider other)
@@ -47,8 +49,13 @@ public class CraftingSystemManager : MonoBehaviour
                 CraftButtonON.SetActive(true);
                 hasAmount = true;
         }
+        if (inventory._grilledCheese >= 1)
+        {
+            _winScreen.SetActive(true);
+            _CraftUI.SetActive(false);
 
-        
+        }
+
     }
 
    public void ResumeTime()
