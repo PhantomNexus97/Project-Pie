@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
 
     public PlayerInventory _playerInventory;
 
+    
 
 
     void Awake()

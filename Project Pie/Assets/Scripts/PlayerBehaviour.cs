@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayerBehaviour : MonoBehaviour
 {
+
+
     [Header("Weapon Data")]
     public RangedWeaponData weaponData;
 
@@ -17,6 +19,9 @@ public class PlayerBehaviour : MonoBehaviour
     [Header("MeleeBox")]
     public GameObject MeleeBox;
 
+    [Header("Menu Bool")]
+    public bool menuIsOpen = false;
+
     public PlayerInventory inventory;
     void Start()
     {
@@ -26,9 +31,16 @@ public class PlayerBehaviour : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetMouseButtonDown(0)){
+        if (menuIsOpen == true)
+        {
+            weaponData.isFiring = false;
+        }
+
+
+        if (Input.GetMouseButtonDown(0))
+        {
             weaponData.isFiring = true;
-;        }
+        }
         if (Input.GetMouseButtonUp(0))
         {
             weaponData.isFiring = false;
@@ -61,6 +73,7 @@ public class PlayerBehaviour : MonoBehaviour
 
 
     }
+
 
 
 

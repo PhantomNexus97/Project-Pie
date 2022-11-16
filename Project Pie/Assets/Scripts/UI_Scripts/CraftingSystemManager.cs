@@ -13,16 +13,22 @@ public class CraftingSystemManager : MonoBehaviour
     public GameObject _winScreen;
     public GameObject _CraftUI;
 
+    [Header("Player Scripts")]
     public PlayerInventory inventory;
+    public PlayerBehaviour playerBehaviour;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player" && gameObject.tag == "_craftingBench")
         {
             Debug.Log("Entered crafting zone");
+            playerBehaviour.menuIsOpen = true;
             CraftingUI.SetActive(true);
             PauseTime();
         }
     }
+
+
+
 
     public void CraftGrillCheese()
     {
@@ -51,11 +57,23 @@ public class CraftingSystemManager : MonoBehaviour
         }
         if (inventory._grilledCheese >= 1)
         {
+            playerBehaviour.menuIsOpen = true;
             _winScreen.SetActive(true);
             _CraftUI.SetActive(false);
 
         }
 
+    }
+
+    public void ResumeFire()
+    {
+
+        StartCoroutine(ResumeFireWait());
+    }
+    IEnumerator ResumeFireWait()
+    {
+        yield return new WaitForSeconds (2);
+        playerBehaviour.menuIsOpen = false;
     }
 
    public void ResumeTime()
