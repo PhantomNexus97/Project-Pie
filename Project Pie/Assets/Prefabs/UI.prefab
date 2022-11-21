@@ -1039,7 +1039,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6107476564345623966
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3631,7 +3631,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4771083590632463747
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5268,6 +5268,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CanvasPC1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 8151385475288201192, guid: 805125f14d031b2479eef7dcb9ca1757,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8366791062129759809, guid: 805125f14d031b2479eef7dcb9ca1757,
         type: 3}

@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     [SerializeField] private float _turnSpeed = 360f;
     [SerializeField] private float _speed = 5f;
     [SerializeField] private Transform _model;
-
+    [SerializeField] private VirtualJoystick inputSource;
     private Vector3 _input;
 
 
@@ -18,29 +18,31 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     {
         GatherInput();
         Look();
+
     }
 
      void FixedUpdate()
      {
         Move();
-     }
+
+    }
 
     void GatherInput()
     {
-        _input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
-
+        //_input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+        _rb.velocity = inputSource.Direction;
     }
     private void Look()
     {
-        if (_input == Vector3.zero) return;
+        if (inputSource.Direction == Vector3.zero) return;
 
-        Quaternion rot = Quaternion.LookRotation(_input.ToIso(), Vector3.up);
+        Quaternion rot = Quaternion.LookRotation(inputSource.Direction.ToIso(), Vector3.up);
         _model.rotation = Quaternion.RotateTowards(_model.rotation, rot, _turnSpeed * Time.deltaTime);
     }
 
     void Move()
     {
-    _rb.MovePosition(transform.position + _input.ToIso() * _input.normalized.magnitude * _speed * Time.deltaTime);
+    _rb.MovePosition(transform.position + inputSource.Direction.ToIso() * inputSource.Direction.normalized.magnitude * _speed * Time.deltaTime);
     }
 
     public void LoadData(GameData data)

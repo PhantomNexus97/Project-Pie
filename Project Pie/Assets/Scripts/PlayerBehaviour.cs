@@ -36,24 +36,6 @@ public class PlayerBehaviour : MonoBehaviour
             weaponData.isFiring = false;
         }
 
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            weaponData.isFiring = true;
-        }
-        if (Input.GetMouseButtonUp(0))
-        {
-            weaponData.isFiring = false;
-        }
-        if (Input.GetMouseButtonDown(1))
-        {
-            MeleeBox.SetActive(true);
-        }
-        if (Input.GetMouseButtonUp(1))
-        {
-            MeleeBox.SetActive(false);
-        }
-
         if (Input.GetKeyDown(KeyCode.RightControl))
         {
             PlayerTakeDmg(10);
@@ -75,7 +57,25 @@ public class PlayerBehaviour : MonoBehaviour
     }
 
 
+    public void Firing()
+    {    
+        weaponData.isFiring = true;  
+    }
 
+    public void NotFiring()
+    {
+        weaponData.isFiring = false;
+    }
+
+    public void SwingMelee()
+    {
+        MeleeBox.SetActive(true);
+    }
+
+    public void StopMelee()
+    {
+        MeleeBox.SetActive(false);
+    }
 
     private void PlayerTakeDmg(int dmg)
     {
