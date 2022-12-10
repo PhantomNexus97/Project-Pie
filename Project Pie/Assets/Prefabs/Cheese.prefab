@@ -110,6 +110,7 @@ GameObject:
   - component: {fileID: 7373820159868178905}
   - component: {fileID: 7373820159868178904}
   - component: {fileID: 7373820159868178903}
+  - component: {fileID: 8093775477389302598}
   - component: {fileID: 7373820159868178907}
   m_Layer: 0
   m_Name: Cheese
@@ -197,6 +198,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.21, y: 1.91, z: 2.18}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8093775477389302598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7373820159868178902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3ca3999e866cb34abc6eaf369234e5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  billboardType: 1
+  lockX: 0
+  lockY: 0
+  lockZ: 0
 --- !u!114 &7373820159868178907
 MonoBehaviour:
   m_ObjectHideFlags: 0

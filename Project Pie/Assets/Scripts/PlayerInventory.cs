@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
+using UnityEngine.SceneManagement;
 
 public class PlayerInventory : MonoBehaviour, IDataPersistence
 {
@@ -28,7 +29,13 @@ public class PlayerInventory : MonoBehaviour, IDataPersistence
     //Crafted Inventory items
     //public TextMeshProUGUI grilledCheeseAmtUI;
 
+      
+
     PlayerInventory inventory;
+    void Start()
+    {
+
+    }
 
     //Pick ups
     public void AddCheese()
@@ -70,10 +77,13 @@ public class PlayerInventory : MonoBehaviour, IDataPersistence
 
     void Update()
     {
+        
+            cheeseAmtUI.text = _cheese.ToString();
+            butterAmtUI.text = _butter.ToString();
+            breadAmtUI.text = _bread.ToString();
 
-        cheeseAmtUI.text = _cheese.ToString();
-        butterAmtUI.text = _butter.ToString();
-        breadAmtUI.text = _bread.ToString();
+        
+    
 
         //grilledCheeseAmtUI.text = _grilledCheese.ToString();
     }

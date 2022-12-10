@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyRangeAi : MonoBehaviour
 {
+    public UnitHealth _enemyHealth = new UnitHealth(100, 100);
 
     public NavMeshAgent agent;
 
@@ -17,10 +18,13 @@ public class EnemyRangeAi : MonoBehaviour
     bool walkPointSet;
     public float WalkPointRange;
 
+    public Transform centrePoint;
+
     //Attacking
     public float timeBetweenAttacks;
     bool alreadyAttack;
-    public GameObject projectile;
+    public ProjectileController bullet;
+    public Transform firePoint;
 
     //States
     public float sightRange, attackRange;
@@ -28,7 +32,7 @@ public class EnemyRangeAi : MonoBehaviour
 
     private void Awake()
     {
-        player = GameObject.Find("PlayerObj").transform;
+        player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
     }
 
@@ -45,39 +49,102 @@ public class EnemyRangeAi : MonoBehaviour
 
 
     }
-
     private void Patroling()
     {
+        if (agent.remainingDistance <= agent.stoppingDistance) //done with path
+        {
+            Vector3 point;
+            if (RandomPoint(centrePoint.position, WalkPointRange, out point)) //pass in our centre point and radius of area
+            {
+                walkPointSet = true;
+                Debug.DrawRay(point, Vector3.up, Color.blue, 1.0f); //so you can see with gizmos
+                agent.SetDestination(point);
+            }
+            walkPointSet = false;
+        }
+    }
 
+    //private void Patroling()
+    //{
+    //    if(!walkPointSet) SearchWalkPoint();
+
+    //    if(walkPointSet)
+    //        agent.SetDestination(walkPoint);
+    //    Vector3 distanceToWalkPoint = transform.position - walkPoint;
+
+    //    //walk reach
+    //    if(distanceToWalkPoint.magnitude < 1f)
+    //        walkPointSet= false;
+    //}
+    bool RandomPoint(Vector3 center, float range, out Vector3 result)
+    {
+
+        Vector3 randomPoint = center + Random.insideUnitSphere * range; //random point in a sphere 
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(randomPoint, out hit, 25.0f, NavMesh.AllAreas)) //documentation: https://docs.unity3d.com/ScriptReference/AI.NavMesh.SamplePosition.html
+        {
+            //the 1.0f is the max distance from the random point to a point on the navmesh, might want to increase if range is big
+            //or add a for loop like in the documentation
+            result = hit.position;
+            return true;
+        }
+
+        result = Vector3.zero;
+        return false;
     }
 
     private void SearchWalkPoint()
     {
+        float randomZ = Random.Range(-WalkPointRange, WalkPointRange);
+        float randomX = Random.Range(-WalkPointRange, WalkPointRange);
 
+        walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
+
+        if(Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
+            walkPointSet = true;
     }
+
 
     private void ChasePlayer()
     {
-
+        agent.SetDestination(player.position);
     }
 
     private void AttackPlayer()
     {
+        agent.SetDestination(transform.position);
 
+        transform.LookAt(player);
+        if (!alreadyAttack)
+        {
+            ProjectileController newBullet = Instantiate(bullet, firePoint.position, firePoint.rotation);
+            alreadyAttack = true;
+            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+        }
     }
 
     private void ResetAttack()
     {
-        
+        alreadyAttack= false;
     }
     
-    public void TakeDamage(int damage)
+    public void TakeDamage(int dmg)
     {
+        _enemyHealth.DmgUnit(dmg);
 
+        if (_enemyHealth.Health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
     }
 
-    private void OnDestroy()
+    private void DestroyEnemy()
     {
-        
+        Destroy(gameObject);
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, sightRange);
     }
 }

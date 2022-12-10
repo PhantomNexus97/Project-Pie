@@ -10,7 +10,16 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     [SerializeField] private float _speed = 5f;
     [SerializeField] private Transform _model;
     [SerializeField] private VirtualJoystick inputSource;
+    public RangedWeaponData weaponData;
+
+    private Animator animator;
+
     private Vector3 _input;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
 
 
@@ -24,6 +33,14 @@ public class PlayerController : MonoBehaviour, IDataPersistence
      void FixedUpdate()
      {
         Move();
+        if ( _rb.velocity.magnitude > 0) 
+        {
+            animator.SetBool("isMoving", true);
+        }
+        else if (_rb.velocity.magnitude < 1) 
+        {
+            animator.SetBool("isMoving", false);
+        }
 
     }
 
@@ -36,8 +53,10 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     {
         if (inputSource.Direction == Vector3.zero) return;
 
-        Quaternion rot = Quaternion.LookRotation(inputSource.Direction.ToIso(), Vector3.up);
-        _model.rotation = Quaternion.RotateTowards(_model.rotation, rot, _turnSpeed * Time.deltaTime);
+      Quaternion rot = Quaternion.LookRotation(inputSource.Direction.ToIso(), Vector3.up);
+      _model.rotation = Quaternion.RotateTowards(_model.rotation, rot, _turnSpeed * Time.deltaTime);
+        
+
     }
 
     void Move()

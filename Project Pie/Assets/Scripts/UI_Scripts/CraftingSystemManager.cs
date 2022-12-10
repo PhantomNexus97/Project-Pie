@@ -62,6 +62,9 @@ public class CraftingSystemManager : MonoBehaviour
             _CraftUI.SetActive(false);
 
         }
+        PlayerInventory.cheeseAmtUI.text = _cheese.ToString();
+        butterAmtUI.text = _butter.ToString();
+        breadAmtUI.text = _bread.ToString();
 
     }
 

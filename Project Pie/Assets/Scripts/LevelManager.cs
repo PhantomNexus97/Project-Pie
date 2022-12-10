@@ -24,17 +24,17 @@ public class LevelManager : MonoBehaviour
 
         }
 
-        if (other.gameObject.tag == "Player" && gameObject.tag == "Level01")
+        if (other.gameObject.tag == "Player" && gameObject.tag == "Gramps_House")
         {
             DataPersistenceManager.instance.SaveGame();
-            SceneManager.LoadScene("Level01");
+            SceneManager.LoadScene("Gramps_House");
 
         }
 
-        if (other.gameObject.tag == "Player" && gameObject.tag == "Level02")
+        if (other.gameObject.tag == "Player" && gameObject.tag == "HUB_Outside_Gramps")
         {
             DataPersistenceManager.instance.SaveGame();
-            SceneManager.LoadScene("Level02");
+            SceneManager.LoadScene("HUB_Outside_Gramps");
 
         }
 

@@ -18,6 +18,7 @@ TagManager:
   - Level03
   - HUB_Outside
   - MeleeWeapon
+  - Gramps_House
   layers:
   - Default
   - TransparentFX
@@ -27,8 +28,8 @@ TagManager:
   - UI
   - Ground
   - Scenery
-  - 
-  - 
+  - Player
+  - Enemy
   - 
   - 
   - 

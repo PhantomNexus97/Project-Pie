@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 8748819342862482156}
   - component: {fileID: 8748819342862482159}
   - component: {fileID: 8748819342862482163}
+  - component: {fileID: 9083411262013437461}
   m_Layer: 0
   m_Name: Bread
   m_TagString: Bread
@@ -210,3 +211,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 
+--- !u!114 &9083411262013437461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8748819342862482158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3ca3999e866cb34abc6eaf369234e5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  billboardType: 1
+  lockX: 0
+  lockY: 0
+  lockZ: 0

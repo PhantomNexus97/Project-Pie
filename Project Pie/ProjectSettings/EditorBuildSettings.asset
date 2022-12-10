@@ -15,12 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/HUB_Outside.unity
     guid: 882dfc869c6aa784f9c047be004bc143
   - enabled: 1
-    path: Assets/Scenes/Level01.unity
-    guid: 75f1ab33cae413e43b834fb643bac054
+    path: Assets/Scenes/HUB_Outside_Gramps.unity
+    guid: c7e615c8d2404b640ab9f4a875034d44
   - enabled: 1
-    path: Assets/Scenes/Level02.unity
-    guid: 3f8c29232c7d2fa40b5641eaa7a9f57f
-  - enabled: 1
-    path: Assets/Scenes/Level03.unity
-    guid: dbe36c25c21d33d4889194e25074ce70
+    path: Assets/Scenes/Gramps_House.unity
+    guid: 606bb9582e815df45b4b518fdd62279e
   m_configObjects: {}

@@ -15,21 +15,34 @@ public class RangedWeaponData : MonoBehaviour
     private float shotCounter;
 
     public Transform firePoint;
+  
+
+
+
+    private void Start()
+    {
+        
+    }
 
     void Update()
     {
         if (isFiring)
         {
+        
+                
+            
             shotCounter -= Time.deltaTime;
             if (shotCounter <= 0)
             {
                 shotCounter = timeBetweenShots;
                ProjectileController newBullet = Instantiate(bullet, firePoint.position, firePoint.rotation);
-               newBullet.speed = bulletSpeed;
+                FindObjectOfType<AudioManager>().Play("Toast_Shot");
+                newBullet.speed = bulletSpeed;
             }
         }
         else
         {
+            
             shotCounter = 0;
         }
     }
