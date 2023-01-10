@@ -17,7 +17,6 @@ public class EnemyRangeAi : MonoBehaviour
     public Vector3 walkPoint;
     bool walkPointSet;
     public float WalkPointRange;
-
     public Transform centrePoint;
 
     //Attacking
@@ -57,31 +56,18 @@ public class EnemyRangeAi : MonoBehaviour
             if (RandomPoint(centrePoint.position, WalkPointRange, out point)) //pass in our centre point and radius of area
             {
                 walkPointSet = true;
-                Debug.DrawRay(point, Vector3.up, Color.blue, 1.0f); //so you can see with gizmos
+                Debug.DrawRay(point, Vector3.up, Color.blue, 1.0f); //so you can see with gizmos created
                 agent.SetDestination(point);
             }
             walkPointSet = false;
         }
     }
-
-    //private void Patroling()
-    //{
-    //    if(!walkPointSet) SearchWalkPoint();
-
-    //    if(walkPointSet)
-    //        agent.SetDestination(walkPoint);
-    //    Vector3 distanceToWalkPoint = transform.position - walkPoint;
-
-    //    //walk reach
-    //    if(distanceToWalkPoint.magnitude < 1f)
-    //        walkPointSet= false;
-    //}
     bool RandomPoint(Vector3 center, float range, out Vector3 result)
     {
 
         Vector3 randomPoint = center + Random.insideUnitSphere * range; //random point in a sphere 
         NavMeshHit hit;
-        if (NavMesh.SamplePosition(randomPoint, out hit, 25.0f, NavMesh.AllAreas)) //documentation: https://docs.unity3d.com/ScriptReference/AI.NavMesh.SamplePosition.html
+        if (NavMesh.SamplePosition(randomPoint, out hit, 25.0f, NavMesh.AllAreas)) 
         {
             //the 1.0f is the max distance from the random point to a point on the navmesh, might want to increase if range is big
             //or add a for loop like in the documentation

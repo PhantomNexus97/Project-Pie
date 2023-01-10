@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,16 +7,13 @@ public class EnemyDeathController : MonoBehaviour
 {
     public UnitHealth _enemyHealth = new UnitHealth(100, 100);
 
-
     public GameObject Collectable;
-
 
     void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.tag == "ToastBullet")
         {
             EnemyTakeDmg(10);
-
         }
 
     }
@@ -30,16 +28,7 @@ public class EnemyDeathController : MonoBehaviour
     private void EnemyTakeDmg(int dmg)
     {
         _enemyHealth.DmgUnit(dmg);
-        Debug.Log("Cheese damaged to " + _enemyHealth.Health);
-    }
-    private void PlayerTakeDmg(int dmg)
-    {
-        GameManager.gameManager._playerHealth.DmgUnit(dmg);
-    }
-
-    private void PlayerHeal(int healing)
-    {
-        GameManager.gameManager._playerHealth.HealUnit(healing);
+        Debug.Log("Damaged to " + _enemyHealth.Health);
     }
 
     void SpawnOjectCollectable()
@@ -49,8 +38,6 @@ public class EnemyDeathController : MonoBehaviour
         
     }
 
-
-
     private void Update()
     {
         if (_enemyHealth.Health <= 0)
@@ -59,6 +46,6 @@ public class EnemyDeathController : MonoBehaviour
             SpawnOjectCollectable();
 
         }
-
     }
+
 }

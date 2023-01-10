@@ -14,6 +14,10 @@ public class DataPersistenceManager : MonoBehaviour
 
     private GameData gameData;
 
+    private PlayerInventory inventory;
+
+    private GameManager gameManager;
+
     private List<IDataPersistence> dataPersistencesObjects;
 
     private FileDataHandler dataHandler;
@@ -72,6 +76,7 @@ public class DataPersistenceManager : MonoBehaviour
         Debug.Log("Loaded List = " + gameData._cheese);
         Debug.Log("Loaded List = " + gameData._butter);
         Debug.Log("Loaded List = " + gameData._bread);
+        Debug.Log("Loaded List = " + gameData._playerHealth);
     }
 
     public void SaveGame()
@@ -83,6 +88,7 @@ public class DataPersistenceManager : MonoBehaviour
         Debug.Log("Saved cheese in List = " + gameData._cheese);
         Debug.Log("Saved butter in List = " + gameData._butter);
         Debug.Log("Saved bread in List = " + gameData._bread);
+        Debug.Log("Loaded List = " + gameData._playerHealth);
 
         dataHandler.Save(gameData);
     }

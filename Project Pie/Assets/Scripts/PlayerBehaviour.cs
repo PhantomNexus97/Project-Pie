@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Debug = UnityEngine.Debug;
 
-public class PlayerBehaviour : MonoBehaviour
+public class PlayerBehaviour : MonoBehaviour, IDataPersistence
 {
 
 
@@ -22,6 +22,9 @@ public class PlayerBehaviour : MonoBehaviour
     public Image[] healthPoints;
     float lerpSpeed;
 
+    [Header("Found Enemy")]
+    public bool _foundCheeseEnemy, _foundButterEnemy, _foundBreadEnemy = false;
+    public GameObject enemyCheckingSphere;
 
     [Header("MeleeBox")]
     public GameObject MeleeBox;
@@ -38,6 +41,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     void Update()
     {
+
         if (menuIsOpen == true)
         {
             weaponData.isFiring = false;
@@ -47,6 +51,7 @@ public class PlayerBehaviour : MonoBehaviour
         {
             PlayerTakeDmg(10);
             Debug.Log("You have been damaged to " + GameManager.gameManager._playerHealth.Health);
+            
         }
         if (Input.GetKeyDown(KeyCode.RightShift))
         {
@@ -58,12 +63,19 @@ public class PlayerBehaviour : MonoBehaviour
             Destroy(this.gameObject);
             gameOverScreen.SetActive(true);
         }
+        
 
         HealthBarFiller();
         lerpSpeed = 3f * Time.deltaTime;
-
-
     }
+    void FoundEnemyCheck()
+    {
+        Debug.Log("Found");
+        if(gameObject.tag == "CheeseEnemy") _foundCheeseEnemy = true;
+        if(gameObject.tag == "BreadEnemy") _foundBreadEnemy= true;
+        if(gameObject.tag == "ButterEnemy") _foundButterEnemy = true;
+    }
+
     void HealthBarFiller()
     {
         //healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, (GameManager.gameManager._playerHealth.Health / GameManager.gameManager._playerHealth.MaxHealth), lerpSpeed);
@@ -160,7 +172,34 @@ public class PlayerBehaviour : MonoBehaviour
             PlayerTakeDmg(5);
             Debug.Log("You have been damaged to " + GameManager.gameManager._playerHealth.Health + " by MeleeDmgBox");
         }
+
+        if (other.gameObject.tag == "CheeseEnemy")
+        {
+            _foundCheeseEnemy = true;
+        }
+
+        if (other.gameObject.tag == "BreadEnemy")
+        {
+            _foundBreadEnemy = true;
+        }
+
+        if (other.gameObject.tag == "ButterEnemy")
+        {
+            _foundButterEnemy = true;
+        }
     }
 
+    public void LoadData(GameData data)
+    {
+        this._foundCheeseEnemy = data._foundCheeseEnemy;
+        this._foundButterEnemy = data._foundButterEnemy;
+        this._foundBreadEnemy = data._foundBreadEnemy;
+    }
 
+    public void SaveData(GameData data)
+    {
+        data._foundCheeseEnemy = this._foundCheeseEnemy;
+        data._foundButterEnemy = this._foundButterEnemy;
+        data._foundBreadEnemy = this._foundBreadEnemy;
+    }
 }

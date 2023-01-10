@@ -38,13 +38,6 @@ public class LevelManager : MonoBehaviour
 
         }
 
-        if (other.gameObject.tag == "Player" && gameObject.tag == "Level03")
-        {
-            DataPersistenceManager.instance.SaveGame();
-            SceneManager.LoadScene("Level03");
-
-        }
-
     }
 
 }

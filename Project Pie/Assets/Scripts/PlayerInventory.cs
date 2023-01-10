@@ -23,6 +23,11 @@ public class PlayerInventory : MonoBehaviour, IDataPersistence
     public TextMeshProUGUI butterAmtUI;
     public TextMeshProUGUI breadAmtUI;
 
+    [Header("Craft Amt Check")]
+    public TextMeshProUGUI cheeseCraftAmtUI;
+    public TextMeshProUGUI butterCraftAmtUI;
+    public TextMeshProUGUI breadCraftAmtUI;
+
 
 
     [Header("CraftedItemUI Amt Check")]
@@ -32,9 +37,25 @@ public class PlayerInventory : MonoBehaviour, IDataPersistence
       
 
     PlayerInventory inventory;
+ 
     void Start()
     {
+        Scene currentScene = SceneManager.GetActiveScene();
+        string sceneName = currentScene.name;
+        if (sceneName == "HUB")
+        {
+            cheeseAmtUI.text = _cheese.ToString();
+            butterAmtUI.text = _butter.ToString();
+            breadAmtUI.text = _bread.ToString();
 
+            cheeseCraftAmtUI.text = _cheese.ToString();
+            butterCraftAmtUI.text = _butter.ToString();
+            breadCraftAmtUI.text = _bread.ToString();
+        }
+        else
+        {
+            return;
+        }
     }
 
     //Pick ups
@@ -77,14 +98,6 @@ public class PlayerInventory : MonoBehaviour, IDataPersistence
 
     void Update()
     {
-        
-            cheeseAmtUI.text = _cheese.ToString();
-            butterAmtUI.text = _butter.ToString();
-            breadAmtUI.text = _bread.ToString();
-
-        
-    
-
         //grilledCheeseAmtUI.text = _grilledCheese.ToString();
     }
 

@@ -16,21 +16,11 @@ public class RangedWeaponData : MonoBehaviour
 
     public Transform firePoint;
   
-
-
-
-    private void Start()
-    {
-        
-    }
-
     void Update()
     {
         if (isFiring)
         {
-        
-                
-            
+
             shotCounter -= Time.deltaTime;
             if (shotCounter <= 0)
             {
